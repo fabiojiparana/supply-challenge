@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/supply-challenge/rules"
+	"github.com/supply-challenge/rule"
 )
 
 const (
@@ -11,7 +11,7 @@ const (
 )
 
 func TestDependsAA(t *testing.T) {
-	rs := rules.NewRuleSet()
+	rs := rule.NewRuleSet()
 	rs.AddDep("a", "a")
 
 	if !rs.IsCoherent() {
@@ -20,7 +20,7 @@ func TestDependsAA(t *testing.T) {
 }
 
 func TestDependsAB_BA(t *testing.T) {
-	rs := rules.NewRuleSet()
+	rs := rule.NewRuleSet()
 	rs.AddDep("a", "b")
 	rs.AddDep("b", "a")
 
@@ -30,7 +30,7 @@ func TestDependsAB_BA(t *testing.T) {
 }
 
 func TestExclusiveAB(t *testing.T) {
-	rs := rules.NewRuleSet()
+	rs := rule.NewRuleSet()
 	rs.AddDep("a", "b")
 	rs.AddConflict("a", "b")
 
@@ -40,7 +40,7 @@ func TestExclusiveAB(t *testing.T) {
 }
 
 func TestExclusiveAB_BC(t *testing.T) {
-	rs := rules.NewRuleSet()
+	rs := rule.NewRuleSet()
 	rs.AddDep("a", "b")
 	rs.AddDep("b", "c")
 	rs.AddConflict("a", "c")
@@ -50,7 +50,7 @@ func TestExclusiveAB_BC(t *testing.T) {
 	}
 }
 func TestDeepDeps(t *testing.T) {
-	rs := rules.NewRuleSet()
+	rs := rule.NewRuleSet()
 	rs.AddDep("a", "b")
 	rs.AddDep("b", "c")
 	rs.AddDep("c", "d")

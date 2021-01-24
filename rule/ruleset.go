@@ -1,4 +1,4 @@
-package rules
+package rule
 
 type RuleSet struct {
 	rulers    map[string][]string
@@ -55,8 +55,8 @@ func (rs *RuleSet) checkConnectionBetweenValues(a, b string) bool {
 		}
 
 		if !checked[firstNode] {
-			values = append(values, rs.rulers[firstNode]...)
 			checked[firstNode] = true
+			values = append(values, rs.rulers[firstNode]...)
 		}
 	}
 

@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/supply-challenge/rules"
+	"github.com/supply-challenge/rule"
 )
 
 func main() {
-	rs := rules.NewRuleSet()
+	rs := rule.NewRuleSet()
 	rs.AddDep("a", "b")
 	rs.AddDep("b", "c")
 	rs.AddDep("c", "d")
